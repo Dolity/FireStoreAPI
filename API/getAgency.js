@@ -73,3 +73,12 @@ const DeleteAll = async (req, res) => {
         res.status(500).json({ error: 'เกิดข้อผิดพลาดบางอย่าง กรุณาลองใหม่อีกครั้งในภายหลัง' });
     }
 };
+
+module.exports = {
+
+    GetAgenciesAll,
+    DeleteDocument,
+    DeleteUser,
+    DeleteAll
+
+}
