@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 
 const admin = require("firebase-admin");
-const credentials = require("C:/FireStoreAPI/keyFS.json")
+const credentials = require("../keyFS.json")
 
 admin.initializeApp({
     credential: admin.credential.cert(credentials)
@@ -73,12 +73,3 @@ const DeleteAll = async (req, res) => {
         res.status(500).json({ error: 'เกิดข้อผิดพลาดบางอย่าง กรุณาลองใหม่อีกครั้งในภายหลัง' });
     }
 };
-
-module.exports = {
-
-    GetAgenciesAll,
-    DeleteDocument,
-    DeleteUser,
-    DeleteAll
-
-}
