@@ -19,6 +19,7 @@ app.get('/agency', dbFirestore.GetAgenciesAll);
 app.delete('/deleteDoc/:email', dbFirestore.DeleteDocument);
 app.delete('/deleteUser/:email', dbFirestore.DeleteUser);
 app.delete('/deleteAll/:email', dbFirestore.DeleteAll);
+app.delete('/disableUser/:email', dbFirestore.DisableUser);
 
 
 app.get('/', (req, res) => {

@@ -74,11 +74,28 @@ const DeleteAll = async (req, res) => {
     }
 };
 
+const DisableUser = async (req, res) => {
+    const { email } = req.params;
+
+    try {
+        const userRecord = await admin.auth().getUserByEmail(email);
+
+        // Disable the user
+        await admin.auth().updateUser(userRecord.uid, { disabled: true });
+
+        res.status(200).json({ message: 'ปิดใช้งานบัญชีผู้ใช้และลบเอกสารเรียบร้อยแล้ว' });
+    } catch (error) {
+        console.error('เกิดข้อผิดพลาดในการปิดใช้งานบัญชีผู้ใช้และลบเอกสาร:', error);
+        res.status(500).json({ error: 'เกิดข้อผิดพลาดบางอย่าง กรุณาลองใหม่อีกครั้งในภายหลัง' });
+    }
+};
+
 module.exports = {
 
     GetAgenciesAll,
     DeleteDocument,
     DeleteUser,
-    DeleteAll
+    DeleteAll,
+    DisableUser
 
 }
